@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rajini Style Title</title>
+
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DOTS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.star-area {
+    width: 420px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.star {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    border-radius: 50%;
+    background: dodgerblue;
+    opacity: 0;
+    animation: fadeIn 0.3s linear forwards;
+}
+
+/* TITLE */
+@keyframes scaleInAndHold {
+    0% {
+        transform: scale(15);
+        opacity: 0;
+        text-shadow: 0 0 20px red;
+    }
+    30% { opacity: 1; transform: scale(6); }
+    60% { transform: scale(3); }
+    80% { transform: scale(1); }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px red;
+    }
+}
+
+.title {
+    text-align: center;
+    opacity: 0;
+    animation: scaleInAndHold 7s ease-out forwards;
+    animation-delay: 7s;
+}
+
+.superstar {
+    font-family: 'Righteous', cursive;
+    font-size: 36px;
+    color: white;
+    letter-spacing: 4px;
+}
+
+.name {
+    font-family: 'Righteous', cursive;
+    font-size: 72px;
+    color: #FDFF00;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="star-area" id="stars"></div>
+
+<div class="title">
+    <div class="superstar">SUPER STAR</div>
+    <div class="name">KUTTY KRISHNAN</div>
+</div>
+
+<script>
+const starBox = document.getElementById("stars");
+
+for (let i = 0; i < 136; i++) {
+    const s = document.createElement("span");
+    s.className = "star";
+    s.style.animationDelay = (i * 0.05) + "s";
+    starBox.appendChild(s);
+}
+</script>
+
+</body>
+</html>
